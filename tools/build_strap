@@ -163,7 +163,7 @@ function upload_strap
 
 	mkdir -p $wsroot/output/
 
-	gtar -C "$cache_dir" -czf $wsroot/output/proto.strap.tgz || {
+	gtar -C "$cache_dir" -czf $wsroot/output/proto.strap.tgz . || {
 		echo "Failed to upload tarball" >&2
 		exit 1
 	}
