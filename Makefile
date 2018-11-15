@@ -320,9 +320,9 @@ FORCEARG_yes=-f
 strap-cache-location:
 	@$(ROOT)/tools/build_strap -l
 
-# build and upload a proto.strap cache
+# build a proto.strap cache tarball
 strap-cache:
-	$(ROOT)/tools/build_strap -j $(MAX_JOBS) -a $(ADJUNCT_TARBALL) -u
+	$(ROOT)/tools/build_strap -c -j $(MAX_JOBS) -a $(ADJUNCT_TARBALL)
 
 # additional illumos-extra content for proto itself
 0-extra-stamp: 0-illumos-stamp
