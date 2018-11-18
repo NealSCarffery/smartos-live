@@ -155,7 +155,8 @@ function create_cache
 		fi
 	fi
 
-	mkdir -p "$cache_dir" || fatal "couldn't mkdir $cache_dir"
+	pfexec mkdir -p "$cache_dir" || fatal "couldn't mkdir $cache_dir"
+	pfexec chown $(id -u) "$cache_dir" || fatal "couldn't chown $cache_dir"
 
 	protodir="$cache_dir"
 
