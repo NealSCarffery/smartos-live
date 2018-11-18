@@ -155,17 +155,16 @@ function create_cache
 		fi
 	fi
 
-	mkdir -p "$cache_dir"
+	mkdir -p "$cache_dir" || fatal "couldn't mkdir $cache_dir"
+
 	protodir="$cache_dir"
 
 	build_strap
 
-	mkdir -p $wsroot/output/
+	mkdir -p $wsroot/output || fatal "couldn't mkdir $wsroot/output"
 
-	gtar -C "$cache_dir" -czf $wsroot/output/proto.strap.tgz . || {
-		echo "Failed to create tarball" >&2
-		exit 1
-	}
+	gtar -C "$cache_dir" -czf $wsroot/output/proto.strap.tgz . ||
+	    fatal "failed to create tarball"
 
 	echo "Created $wsroot/output/proto.strap.tgz"
 }
